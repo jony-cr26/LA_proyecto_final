@@ -26,3 +26,15 @@ const nombreDisponibles = menuDisponible.map((platillo) => {
 })
 
 console.log(nombreDisponibles);
+
+//Buscar un platillo por su nombre
+function bucarPlatillo(nombre) {
+    return platillos.find((platillo) => {
+        return platillo.nombre.toLowerCase() === nombre.toLowerCase();
+    });
+}
+
+const platilloBuscado = "Tacos al pastor";
+const resultadoBusqueda = bucarPlatillo(platilloBuscado);
+console.log(`\nBuscando el platillo: ${platilloBuscado}`);
+console.log(resultadoBusqueda ? `Platillo encontrado: ${resultadoBusqueda.nombre} - $${resultadoBusqueda.precio}` : "Platillo no encontrado");
