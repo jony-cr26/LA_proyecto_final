@@ -54,3 +54,25 @@ const platillosAgotados = platillos.some((platillo) => {
     return platillo.cantidad === 0;
 })
 console.log(`\n¿Hay platillos agotados? ${platillosAgotados ? "Sí" : "No"}`);
+
+// Ordenar menu por precio
+var platillosOrdenados = [...menuDisponible].sort((a, b) => a.precio - b.precio);
+console.log("\nMenú ordenado por precio:");
+
+platillosOrdenados = platillosOrdenados.map((platillo) => {
+    return `${platillo.nombre} - $${platillo.precio}`;
+})
+
+console.log(platillosOrdenados);
+
+//Filtar platillos por categoria
+function filtrarPorCategoria(categoria) {
+    return platillos.filter((platillo) => {
+        return platillo.categoria.toLowerCase() === categoria.toLowerCase();
+    });
+}
+
+const categoriaBuscada = "Postre";
+console.log(`\nPlatillos en la categoría "${categoriaBuscada}":`);
+const platillosCategoria = filtrarPorCategoria(categoriaBuscada);
+console.log(platillosCategoria);
