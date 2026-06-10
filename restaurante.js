@@ -48,3 +48,9 @@ function calcularValorInventario(menu) {
 
 const valorTotalInventario = calcularValorInventario(platillos);
 console.log(`\nEl valor total del inventario es: $${valorTotalInventario}`);
+
+//Revisar platillos agotados
+const platillosAgotados = platillos.some((platillo) => {
+    return platillo.cantidad === 0;
+})
+console.log(`\n¿Hay platillos agotados? ${platillosAgotados ? "Sí" : "No"}`);
