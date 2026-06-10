@@ -76,3 +76,19 @@ const categoriaBuscada = "Postre";
 console.log(`\nPlatillos en la categoría "${categoriaBuscada}":`);
 const platillosCategoria = filtrarPorCategoria(categoriaBuscada);
 console.log(platillosCategoria);
+
+//Agregar un nuevo platillo al menú
+function agregarPlatillo(nuevoPlatillo) {
+    const existe = platillos.some((platillo) => {
+        return platillo.id === nuevoPlatillo.id;
+    });
+    if (!existe) {
+        platillos.push(nuevoPlatillo);
+        console.log(`\nPlatillo "${nuevoPlatillo.nombre}" agregado al menú.`);
+    } else {
+        console.log(`\nNo se pudo agregar el platillo. El ID ${nuevoPlatillo.id} ya existe.`);
+    }
+}
+
+const nuevoPlatillo = { id: 11, nombre: "Churros", precio: 30, cantidad: 50, categoria: "Postre" };
+agregarPlatillo(nuevoPlatillo);
