@@ -38,3 +38,13 @@ const platilloBuscado = "Tacos al pastor";
 const resultadoBusqueda = bucarPlatillo(platilloBuscado);
 console.log(`\nBuscando el platillo: ${platilloBuscado}`);
 console.log(resultadoBusqueda ? `Platillo encontrado: ${resultadoBusqueda.nombre} - $${resultadoBusqueda.precio}` : "Platillo no encontrado");
+
+//Calcular valor total del inventario
+function calcularValorInventario(menu) {
+    return menu.reduce((total, platillo) => {
+        return total + (platillo.precio * platillo.cantidad);
+    }, 0);
+}
+
+const valorTotalInventario = calcularValorInventario(platillos);
+console.log(`\nEl valor total del inventario es: $${valorTotalInventario}`);
